@@ -1,13 +1,29 @@
-import React from 'react';
-import title from '../images/title.png'
+import React, {Component} from 'react';
+import title from './images/title.png'
 
 //<button className="button" onClick={this.startGame}>Start</button>
-function Header() {
-    return (
-        <header>
-            <img src={title} width={400} className="App-title" alt="title"/>
-        </header>
-    )
+class Header extends Component {
+    constructor() {
+        super();
+    
+        console.log("Navbar constructed");
+      }
+    
+      componentDidMount = () => {
+        console.log("\tNavbar component did mount");
+      }
+    
+      componentWillUnmount = () => {
+        console.log("\tNavbar component will unmount");
+      }
+
+      render() {
+        return (
+            <header>
+                <img src={title} width={400} className="App-title" alt="title"/>
+            </header>
+        )
+      }
 }
 
 export default Header;
