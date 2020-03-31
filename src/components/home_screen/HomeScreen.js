@@ -4,13 +4,23 @@ import Header from '../layout/Header';
 
 //<button className="button" onClick={this.startGame}>Start</button>
 class HomeScreen extends Component {
+  constructor(props) {
+    super(props);
+    console.log("\tHomeScreen constructor");
+  }
+
+  handleStartGame = () => {
+    console.log("handleStartGame");
+    this.props.startGameCallback();
+  }
+  
   render() {
     console.log("\tHomeScreen render");
     return (
       <div className="App"  style={{textAlign: "center", padding:10, margin: 10}}>
         <Header/>
         <p>Type as many words as you can before the time runs out.</p>
-        <button className="button" style={{ cursor: "pointer", margin: 10}}>START GAME</button>
+        <button className="button" onClick={this.handleStartGame} style={{ cursor: "pointer", margin: 10}}>START GAME</button>
       </div>
     );
   }
