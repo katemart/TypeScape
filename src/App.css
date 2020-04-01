@@ -7,11 +7,6 @@
 }
 
 :root {
-  /* 
-      FIRST WE'LL DEFINE OUR SWATCHES, i.e. THE COMPLEMENTARY
-      COLORS THAT WE'LL USE TOGETHER IN MULTIPLE PLACES THAT
-      TOGETHER WILL MAKE UP A GIVEN THEME
-  */
   --swatch-foundation:    #EEEEDD; /* USED FOR BODY BACKGROUND */
   --swatch-primary:       #E6E6E6; /* DOMINANT COLOR, USED FOR MOST BACKGROUNDS */
   --swatch-complement:    #E1E4CB; /* USED IN FORGROUND OF PRIMARY FOR TEXT AND BORDERS */
@@ -42,8 +37,15 @@ a {
   font-size: 20px;
 }
 
+.game-letter{
+  letter-spacing: 2px;
+  font-size: 2rem;
+  font-weight: 700;
+  background: #F3B61F;
+}
+
 .health-bar {
-  width: 25%;
+  width: 35%;
   background-color: #ddd;
   display: inline-block;
   border: 4px solid #111111;
