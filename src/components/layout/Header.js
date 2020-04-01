@@ -1,22 +1,7 @@
 import React, {Component} from 'react';
 import title from './images/title.png'
 
-//<button className="button" onClick={this.startGame}>Start</button>
 class Header extends Component {
-    constructor() {
-        super();
-    
-        console.log("Header constructed");
-      }
-    
-      componentDidMount = () => {
-        console.log("\tHeader component did mount");
-      }
-    
-      componentWillUnmount = () => {
-        console.log("\tHeader component will unmount");
-      }
-
       render() {
         return (
             <header>
