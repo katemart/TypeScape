@@ -6,15 +6,15 @@ class Header extends Component {
     constructor() {
         super();
     
-        console.log("Navbar constructed");
+        console.log("Header constructed");
       }
     
       componentDidMount = () => {
-        console.log("\tNavbar component did mount");
+        console.log("\tHeader component did mount");
       }
     
       componentWillUnmount = () => {
-        console.log("\tNavbar component will unmount");
+        console.log("\tHeader component will unmount");
       }
 
       render() {
