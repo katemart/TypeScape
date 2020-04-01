@@ -17,9 +17,11 @@ class HomeScreen extends Component {
   render() {
     console.log("\tHomeScreen render");
     return (
-      <div className="App"  style={{textAlign: "center", padding:10, margin: 10}}>
+      <div className="App" style={{textAlign: "center", padding:10, margin: 10}}>
         <Header/>
-        <p>Type as many words as you can before the time runs out.</p>
+        <p style={{fontSize: 20, padding: 30}}>
+          Defeat the monster by typing as many words<br/>as you can before the time runs out.
+        </p>
         <button className="button" onClick={this.handleStartGame} style={{ cursor: "pointer", margin: 10}}>START GAME</button>
       </div>
     );
