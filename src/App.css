@@ -7,11 +7,11 @@
 }
 
 :root {
-  --swatch-foundation:    #EEEEDD; /* USED FOR BODY BACKGROUND */
-  --swatch-primary:       #E6E6E6; /* DOMINANT COLOR, USED FOR MOST BACKGROUNDS */
-  --swatch-complement:    #E1E4CB; /* USED IN FORGROUND OF PRIMARY FOR TEXT AND BORDERS */
-  --swatch_contrast:      #111111; /* USED IN MOUSE-OVER SELECTION OF LARGE ELEMENTS */
-  --swatch-accent:        #26a69a; /* USED IN MOUSE-OVER SELECTION OF TEXT AND BORDERS */    
+  --swatch-foundation:    #EEEEDD;
+  --swatch-primary:       #E6E6E6; 
+  --swatch-complement:    #E1E4CB; 
+  --swatch_contrast:      #111111; 
+  --swatch-accent:        #26a69a;    
   --my-font-family:          "Robaaaoto";
   --bounceEasing: cubic-bezier(0.51, 0.92, 0.24, 1.15);
 }
@@ -45,8 +45,16 @@ a {
 }
 
 .health-bar {
-  width: 35%;
+  width: 30%;
   background-color: #ddd;
   display: inline-block;
   border: 4px solid #111111;
+}
+
+.word-input {
+  width: 30%;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 6px;
+  text-align: center;
 }
