@@ -1,11 +1,13 @@
 import './App.css';
 import React, {Component} from 'react';
 import HomeScreen from './components/home_screen/HomeScreen';
-import MatchScreen from './components/game_screen/MatchScreen';
+import MatchScree from './components/game_screen/MatchScreen';
+import FreestyleScreen from './components/game_screen/FreestyleScreen';
 
 const AppScreen = {
   HOME_SCREEN: "HOME_SCREEN",
-  MATCH_SCREEN: "MATCH_SCREEN"
+  MATCH_SCREEN: "MATCH_SCREEN",
+  FREESTYLE_SCREEN: "FREESTYLE_SCREEN"
 }
 
 class App extends Component {
@@ -28,15 +30,26 @@ class App extends Component {
     });
   }
 
+  goToFreestyleScreen = () => {
+    this.setState({
+      currentScreen: AppScreen.FREESTYLE_SCREEN,
+    });
+  }
+
   render() {
     switch (this.state.currentScreen) {
       case AppScreen.HOME_SCREEN:
         return <HomeScreen 
+          goToHomeCallback={this.goToHomeScreen}
           startMatchCallback={this.goToMatchScreen}
           startFreestyleCallback={this.goToFreestyleScreen}
         />;
       case AppScreen.MATCH_SCREEN:
-        return <MatchScreen 
+        return <MatchScree 
+          goToHomeCallback={this.goToHomeScreen}
+        />;
+      case AppScreen.FREESTYLE_SCREEN:
+        return <FreestyleScreen 
           goToHomeCallback={this.goToHomeScreen}
         />;
       default:
