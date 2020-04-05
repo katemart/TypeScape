@@ -18,10 +18,10 @@ class MatchScreen extends Component {
             activeWord: this.getWord(),
             score: 0,
             health: 100,
-            time: 60,
+            time: this.props.time,
             isPlaying: true, 
             status: Status.DEFAULT
-        }
+        };
     }
 
     componentDidMount = () => {

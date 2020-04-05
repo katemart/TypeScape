@@ -9,16 +9,15 @@ class FreestyleScreen extends Component {
             activeWord: this.getWord(),
             wordsCorrect: 0,
             charsCorrect: 0,
-            time: 60,
+            time: this.props.time,
             wpm: 0,
             isPlaying: true
-        }
+        };
     }
 
     componentDidMount = () => {
         this.countInterval = setInterval(this.countdown.bind(this), 1000);
         this.statusInterval = setInterval(this.checkStatus.bind(this), 50);
-        //document.addEventListener("keydown", this.countChars);
     }
 
     componentWillUnmount = () => {

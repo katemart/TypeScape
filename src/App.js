@@ -1,7 +1,7 @@
 import './App.css';
 import React, {Component} from 'react';
 import HomeScreen from './components/home_screen/HomeScreen';
-import MatchScree from './components/game_screen/MatchScreen';
+import MatchScreen from './components/game_screen/MatchScreen';
 import FreestyleScreen from './components/game_screen/FreestyleScreen';
 
 const AppScreen = {
@@ -10,12 +10,19 @@ const AppScreen = {
   FREESTYLE_SCREEN: "FREESTYLE_SCREEN"
 }
 
+const Levels = {
+  EASY: 120,
+  MEDIUM: 60,
+  HARD: 30
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currentScreen: AppScreen.HOME_SCREEN
-    }
+    };
+    this.time = Levels.EASY;
   }
 
   goToHomeScreen = () => {
@@ -36,6 +43,10 @@ class App extends Component {
     });
   }
 
+  setDifficulty = (difficulty) => {
+    this.time = difficulty;
+  }
+
   render() {
     switch (this.state.currentScreen) {
       case AppScreen.HOME_SCREEN:
@@ -43,14 +54,18 @@ class App extends Component {
           goToHomeCallback={this.goToHomeScreen}
           startMatchCallback={this.goToMatchScreen}
           startFreestyleCallback={this.goToFreestyleScreen}
+          setDifficulty={this.setDifficulty}
+          Levels={Levels}
         />;
       case AppScreen.MATCH_SCREEN:
-        return <MatchScree 
+        return <MatchScreen 
           goToHomeCallback={this.goToHomeScreen}
+          time={this.time}
         />;
       case AppScreen.FREESTYLE_SCREEN:
         return <FreestyleScreen 
           goToHomeCallback={this.goToHomeScreen}
+          time={this.time}
         />;
       default:
         return <div></div>
