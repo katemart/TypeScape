@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Header from '../layout/Header';
 import {words} from '../../utils/words.js';
-import monster from '../layout/images/bubbles.gif';
-import monster_final from '../layout/images/goop_end.png';
+import monster_easy from '../layout/images/monster_1.gif';
+import monster_medium from '../layout/images/monster_2.gif';
+import monster_hard from '../layout/images/monster_3.gif';
 import HealthBar from '../layout/HealthBar';
 
 const Status = {
@@ -20,7 +21,8 @@ class MatchScreen extends Component {
             health: 100,
             time: this.props.time,
             isPlaying: true, 
-            status: Status.DEFAULT
+            status: Status.DEFAULT,
+            image: this.getMonster()
         };
     }
 
@@ -67,6 +69,17 @@ class MatchScreen extends Component {
         } 
     }
 
+    getMonster () {
+        let time = this.props.time;
+        if(time === "30") {
+            return monster_hard;
+        } else if(time === "60") {
+            return monster_medium;
+        } else {
+            return monster_easy;
+        }
+    }
+
     calculateHealth = () => {
         let health = this.state.health;
         if(this.state.activeWord.length <= 5 && health > 5) {
@@ -107,46 +120,41 @@ class MatchScreen extends Component {
         switch(this.state.isPlaying) {
             case true:
                 return (
-                    <div>
-                        <div style={{textAlign: "center", padding: 10, margin: 10}}>
-                            <Header goToHomeCallback={this.handleGoHome}/>
-                            <div>
-                                <h2>{"TIME: " + this.state.time + "\tSCORE: " + this.state.score}</h2>
-                            </div>
-                            <br/>
-                            <img src={monster} width={250} alt="title"/>
-                            <HealthBar width={this.state.health}/>
-                            <h1 style={{fontSize: 50}}>{this.state.activeWord}</h1>
-                            <div style={{padding: 20}}>
-                                <input 
-                                    className="word-input"
-                                    type="text" 
-                                    placeholder="Start typing..." 
-                                    style={{textTransform: "uppercase"}} 
-                                    onInput={this.checkWord}
-                                    autoFocus
-                                />
-                            </div>
+                    <div style={{textAlign: "center", padding: 10, margin: 10}}>
+                        <Header goToHomeCallback={this.handleGoHome}/>
+                        <div>
+                            <h2>{"TIME: " + this.state.time + "\tSCORE: " + this.state.score}</h2>
                         </div>
+                        <br/>
+                        <img src={this.state.image} style={{height:250}} alt=""/>
+                        <HealthBar width={this.state.health}/>
+                        <h1 style={{fontSize: 50}}>{this.state.activeWord}</h1>
+                        <div style={{padding: 20}}>
+                            <input 
+                                className="word-input"
+                                type="text" 
+                                placeholder="Start typing..." 
+                                style={{textTransform: "uppercase"}} 
+                                onInput={this.checkWord}
+                                autoFocus
+                             />
+                         </div>
                     </div>
                 );
             case false:
                 return (
-                    <div>
-                        <div style={{textAlign: "center", padding: 5, margin: 5}}>
-                            <Header goToHomeCallback={this.handleGoHome}/>
-                            <img src={monster_final} width={250} alt="title"/>
-                            <div>
-                                <h1>GAME OVER!</h1>
-                                <h2>YOU HAVE {this.state.status} THE GAME.</h2>
-                                <h3>FINAL SCORE: {this.state.score}</h3>
-                            </div>
+                    <div style={{textAlign: "center", padding: 5, margin: 5}}>
+                        <Header goToHomeCallback={this.handleGoHome}/>
+                        <div>
+                            <h1>GAME OVER!</h1>
+                            <h2>YOU HAVE {this.state.status} THE GAME.</h2>
+                            <h3>FINAL SCORE: {this.state.score}</h3>
                         </div>
-                        <div style={{textAlign: "center", padding:10, margin: 10}}>
-                            <button className="button" onClick={this.handleGoHome} 
-                            style={{fontSize: 30, cursor: "pointer", margin: 10}}>PLAY AGAIN</button>
-                        </div>
+                    <div style={{textAlign: "center", padding:10, margin: 10}}>
+                        <button className="button" onClick={this.handleGoHome} 
+                        style={{fontSize: 30, cursor: "pointer", margin: 10}}>PLAY AGAIN</button>
                     </div>
+                </div>
                 );
             default:
                 return <div></div>
