@@ -29,6 +29,7 @@ class App extends Component {
     this.setState({
       currentScreen: AppScreen.HOME_SCREEN,
     });
+    this.time = Levels.EASY;
   }
 
   goToMatchScreen = () => {
