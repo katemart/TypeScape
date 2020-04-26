@@ -102,7 +102,9 @@ class FreestyleScreen extends Component {
                             <Header goToHomeCallback={this.handleGoHome}/>
                             <div>
                                 <h1>GAME OVER!</h1>
+                                <h3>TOTAL WORDS TYPED: {this.state.wordsCorrect}</h3>
                                 <h3>WORDS PER MINUTE: {this.state.wpm}</h3>
+                                <h3>CHARACTERS PER MINUTE: {this.state.charsCorrect}</h3>
                             </div>
                         </div>
                         <div style={{textAlign: "center", padding:10, margin: 10}}>
