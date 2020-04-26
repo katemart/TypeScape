@@ -1,5 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Live App URL
+
+https://katemart.github.io/typescape/
+
+
 ## Available Scripts
 
 In the project directory, you can run:
