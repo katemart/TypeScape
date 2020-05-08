@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import Sound from 'react-sound';
 import Header from '../layout/Header';
 import background from '../layout/sounds/home.mp3';
 
@@ -51,7 +50,7 @@ class HomeScreen extends Component {
             </span>
             <br />
             <label>
-              <input name="level" type="radio" value={this.props.Levels.EASY} onClick={this.difficultyClick}></input>
+              <input defaultChecked name="level" type="radio" value={this.props.Levels.EASY} onClick={this.difficultyClick}></input>
                 &nbsp;EASY (120 seconds)
               </label>
             <label style={{ padding: 10 }}>

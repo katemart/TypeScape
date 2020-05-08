@@ -22,6 +22,7 @@ class MatchScreen extends Component {
         super(props);
         this.state = {
             activeWord: this.getWord(),
+            nextWord: this.getWord(),
             score: 0,
             health: 100,
             time: this.props.time,
@@ -121,7 +122,8 @@ class MatchScreen extends Component {
     checkWord = (e) => {
         if (e.target.value.toUpperCase() === this.state.activeWord) {
             this.setState({
-                activeWord: this.getWord(),
+                activeWord: this.state.nextWord,
+                nextWord: this.getWord(),
                 score: this.calculateScore(),
                 health: this.calculateHealth()
             })
@@ -148,6 +150,7 @@ class MatchScreen extends Component {
                         <img src={this.state.image} style={{ height: 250 }} alt="" />
                         <HealthBar width={this.state.health} />
                         <h1 style={{ fontSize: 50 }}>{this.state.activeWord}</h1>
+                        <h5 style={{ fontSize: 15 }}>{"NEXT WORD IS: " + this.state.nextWord}</h5>
                         <div style={{ padding: 20 }}>
                             <input
                                 className="word-input"

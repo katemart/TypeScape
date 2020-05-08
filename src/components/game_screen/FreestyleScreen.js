@@ -11,6 +11,7 @@ class FreestyleScreen extends Component {
         super(props);
         this.state = {
             activeWord: this.getWord(),
+            nextWord: this.getWord(),
             wordsCorrect: 0,
             charsCorrect: 0,
             time: this.props.time,
@@ -67,7 +68,8 @@ class FreestyleScreen extends Component {
     checkWord = (e) => {
         if (e.target.value.toUpperCase() === this.state.activeWord) {
             this.setState({
-                activeWord: this.getWord(),
+                activeWord: this.state.nextWord,
+                nextWord: this.getWord(),
                 wordsCorrect: this.state.wordsCorrect + 1,
                 charsCorrect: this.state.charsCorrect + this.state.activeWord.length
             })
@@ -97,6 +99,7 @@ class FreestyleScreen extends Component {
                                 <h2>{"TIME: " + this.state.time + "\tCORRECT WORDS: " + this.state.wordsCorrect}</h2>
                             </div>
                             <h1 style={{ fontSize: 50 }}>{this.state.activeWord}</h1>
+                            <h5 style={{ fontSize: 15 }}>{"NEXT WORD IS: " + this.state.nextWord}</h5>
                             <div style={{ padding: 20 }}>
                                 <input
                                     className="word-input"
