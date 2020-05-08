@@ -32,7 +32,9 @@ class MatchScreen extends Component {
     }
 
     componentDidMount = () => {
-        this.backgroundAudio = document.getElementById("background");
+        this.backgroundAudio = new Audio(background);
+        this.backgroundAudio.autoplay = true;
+        this.backgroundAudio.loop = true;
         this.backgroundAudio.volume = 0.08;
         this.countInterval = setInterval(this.countdown.bind(this), 1000);
         this.statusInterval = setInterval(this.checkStatus.bind(this), 50);
@@ -44,6 +46,7 @@ class MatchScreen extends Component {
     }
 
     handleGoHome = () => {
+        this.backgroundAudio.pause();
         this.props.goToHomeCallback();
     }
 
@@ -137,9 +140,6 @@ class MatchScreen extends Component {
             case true:
                 return (
                     <div style={{ textAlign: "center", padding: 10, margin: 10 }}>
-                        <audio id="background" autoPlay loop>
-                            <source type="audio/mp3" src={background} />
-                        </audio>
                         <Header />
                         <div>
                             <h2>{"TIME: " + this.state.time + "\tSCORE: " + this.state.score}</h2>
