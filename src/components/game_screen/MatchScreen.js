@@ -121,7 +121,7 @@ class MatchScreen extends Component {
             case true:
                 return (
                     <div style={{textAlign: "center", padding: 10, margin: 10}}>
-                        <Header goToHomeCallback={this.handleGoHome}/>
+                        <Header />
                         <div>
                             <h2>{"TIME: " + this.state.time + "\tSCORE: " + this.state.score}</h2>
                         </div>
@@ -138,13 +138,16 @@ class MatchScreen extends Component {
                                 onInput={this.checkWord}
                                 autoFocus
                              />
+                             <br/>
+                             <br/>
+                             <button className="button" onClick={this.handleGoHome} style={{fontSize: 20, cursor: "pointer"}}>QUIT GAME</button>
                          </div>
                     </div>
                 );
             case false:
                 return (
                     <div style={{textAlign: "center", padding: 5, margin: 5}}>
-                        <Header goToHomeCallback={this.handleGoHome}/>
+                        <Header />
                         <div>
                             <h1>GAME OVER!</h1>
                             <h2>YOU HAVE {this.state.status} THE GAME.</h2>

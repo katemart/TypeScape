@@ -12,18 +12,18 @@ class HomeScreen extends Component {
 
   handleGoHome = () => {
     this.props.goToHomeCallback();
-}
+  }
 
-difficultyClick = (e) => {
-  const difficulty = e.target.value;
-  this.props.setDifficulty(difficulty);
-}
+  difficultyClick = (e) => {
+    const difficulty = e.target.value;
+    this.props.setDifficulty(difficulty);
+  }
   
   render() {
     return (
       <div className="App" style={{padding: 10, margin: 15}}>
         <div style={{textAlign: "center"}}>
-          <Header goToHomeCallback={this.handleGoHome}/>
+          <Header />
         </div>
         <div style={{margin: "auto", width: "80%"}}>
           <div>

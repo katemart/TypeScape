@@ -77,7 +77,7 @@ class FreestyleScreen extends Component {
                 return (
                     <div>
                         <div style={{textAlign: "center", padding:10, margin: 10}}>
-                            <Header goToHomeCallback={this.handleGoHome}/>
+                            <Header />
                             <div className="col s4">
                                 <h2>{"TIME: " + this.state.time + "\tCORRECT WORDS: " + this.state.wordsCorrect}</h2>
                             </div>
@@ -91,6 +91,9 @@ class FreestyleScreen extends Component {
                                     onInput={this.checkWord}
                                     autoFocus
                                 />
+                                <br/>
+                             <br/>
+                             <button className="button" onClick={this.handleGoHome} style={{fontSize: 20, cursor: "pointer"}}>QUIT GAME</button>
                             </div>
                         </div>
                     </div>
@@ -99,7 +102,7 @@ class FreestyleScreen extends Component {
                 return (
                     <div>
                         <div style={{textAlign: "center", padding: 5, margin: 5}}>
-                            <Header goToHomeCallback={this.handleGoHome}/>
+                            <Header />
                             <div>
                                 <h1>GAME OVER!</h1>
                                 <h3>TOTAL WORDS TYPED: {this.state.wordsCorrect}</h3>
