@@ -101,7 +101,7 @@ class MatchScreen extends Component {
             return health - 20;
         } else {
             health = 0;
-            var audio = new Audio(dead);
+            let audio = new Audio(dead);
             audio.volume = 0.09;
             audio.play();
             return health;
