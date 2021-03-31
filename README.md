@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Live App URL
 
-https://katemart.github.io/typescape/
+https://katemart.github.io/TypeScape/
 
 
 ## Available Scripts
